@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件付き画像表示</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 50px;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+        #resultImage {
+            display: none; /* 初期状態では非表示 */
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>文字列を入力してください</h2>
+    
+    <div class="input-container">
+        <input type="text" id="userInput" placeholder="ここに文字を入力" oninput="checkInput()">
+    </div>
+
+    <!-- 表示させる画像（同じフォルダ内に AIEO.png を配置してください） -->
+    <img id="resultImage" src="AIEO.png" alt="AIEO.png">
+
+    <script>
+        function checkInput() {
+            const inputField = document.getElementById('userInput');
+            const img = document.getElementById('resultImage');
+            
+            // 入力された文字列が「SSHLOGIN」と完全に一致するか判定
+            if (inputField.value === 'SSHLOGIN') {
+                img.style.display = 'block'; // 一致したら表示
+            } else {
+                img.style.display = 'none';  // 一致しなければ非表示
+            }
+        }
+    </script>
+
+</body>
+</html>
